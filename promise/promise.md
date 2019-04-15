@@ -1,3 +1,4 @@
+#### Promise
 `Promise就是一个对象，代表一个异步操作的最终成功或失败`
 `本质上，Promise是一个绑定了回调的对象，而不是将回调传进函数内部`
 `不使用Promise时,根据一个setting文件，生成结果的函数(createResult())表示如下`
