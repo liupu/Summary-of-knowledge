@@ -39,14 +39,14 @@ console.log('dcObj: \n',dcObj);
 
 
 //浅拷贝添加拷贝数组功能
-function shallowClone(date){
-    if(!date || typeof date !=='object'){
+function shallowClone(data){
+    if(!data || typeof data !=='object'){
         throw new Error('error argument');
     }
-    var targetObj = date.constructor === Array ? [] : {};
-    for(var key in date){
-        if(date.hasOwnProperty(key)){
-            targetObj[key] = date[key];
+    var targetObj = data.constructor === Array ? [] : {};
+    for(var key in data){
+        if(data.hasOwnProperty(key)){
+            targetObj[key] = data[key];
         }
     }
     return targetObj;
@@ -54,18 +54,18 @@ function shallowClone(date){
 
 //递归实现深拷贝
 
-function deepCopy(date){
-    if(!date || typeof date !== 'object'){
+function deepCopy(data){
+    if(!data || typeof data !== 'object'){
         throw new Error('error argument')
     }
-    var targetObj = date.constructor === Array ? [] : {};
-    for(var key in date){
-        if(date.hasOwnProperty(key)){
-            if(date[key] && typeof date[key] === 'object'){
-                targetObj[key] = date[key].constructor === Array ? [] : {};
-                targetObj[key] = deepCopy(date[key])
+    var targetObj = data.constructor === Array ? [] : {};
+    for(var key in data){
+        if(data.hasOwnProperty(key)){
+            if(data[key] && typeof data[key] === 'object'){
+                targetObj[key] = data[key].constructor === Array ? [] : {};
+                targetObj[key] = deepCopy(data[key])
             }
-            targetObj[key]=date[key];
+            targetObj[key]=data[key];
         }
     }
     return targetObj;
