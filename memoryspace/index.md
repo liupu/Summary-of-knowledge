@@ -121,6 +121,19 @@ console.log(obj===obj2)
 `深拷贝`：不论是对象内的`基本类型还是引用类型`都被完全拷贝,拷贝后两个对象互不影响
 
 `一种比较简单实现方法是使用var dcObj = JSON.parse(JSON.stringify(obj))`
+
+*需要注意的是，使用JSON.Stringify()序列化对象时会把对象内的function和原型成员忽略掉*
+```
+var obj = {
+    name: 'Jay Chou',
+    job: 'artist',
+    say:function(){
+        alert(this.job);
+    }
+}
+JSON.stringify(obj);
+//"{"name":"Jay Chou","job":"artist"}"
+```
 ```
 var obj = {
     name: 'Jay Chou',
