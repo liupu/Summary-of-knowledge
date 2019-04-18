@@ -101,13 +101,84 @@ flex-flow:row-reverse nowrap;
 *当弹性容器的宽度正好等于元素宽度总和，无多余宽度，此时flex-grow设置什么值都不会生效*
 
 *对于flex-shrink,在容器宽度有剩余时也是不会生效*
+#### 四、弹性处理与刚性尺寸
+`在进行弹性处理之余，其实有些场景我们更希望元素尺寸固定，不需要进行弹性调整。设置元素尺寸除了width和height以外，flex还提供了一个flex-basis属性`
+
+`flex-basis设置的是元素在主轴上的初始尺寸，所谓的初始尺寸就是元素在flex-grow和flex-shrink生效前的尺寸`
+
+##### 1.flex-basis与width/height的区别
+`首先以width为例进行比较。`
+
+`(1)两者都为0`
+* width:0; ----完全没有显示
+* flex-basis:0; ----根据内容撑开宽度
+```
+<div id="container">
+    <div>1111<div>
+    <div>2222</div>
+</div>
+
+#container{
+    display:flex;
+}
+div > div:first-child{
+    width: 0;
+}
+div > div:nth-child(2){
+    flex-basis: 0;
+}
+```
+`(2)两者非0`
+* width:!0;
+* flex-basis:!0;
+`数值相同时两者等效`
+
+`同时设置，flex-basis优先级高`
+
+`(3)flex-basis:auto;`
+
+`flex-basis为auto时，如设置了width则元素尺寸由width决定；没有设置则由内容决定`
+
+`(4)flex-basis === 主轴上的尺寸!==width`
+* 将主轴方向改为：上--->下
+* 此时主轴的尺寸是元素的height
+* flex-basis===height
 ``
+##### 2.常用的复合属性flex
+`最容易迷糊的一个`
 
-``
+`flex=flex-grow + flex-shrink + flex-basis`
 
+```
+flex:1;
+===>
+flex-grow:1;
+flex-shrink:1;
+flex-basis:0%;
 
-``
+flex:2;
+===>
+flex-grow:2;
+flex-shrink:1;
+flex-basis:0%;
 
+flex:auto;
+===>
+flex-grow:1;
+flex-shrink:1;
+flex-basis:auto;
+
+flex:none;
+===>
+flex-grow:0;
+flex-shrink:0;
+flex-basis:auto;//用于固定尺寸 不伸缩
+```
+`flex:1;和flex:auto;的区别`
+
+`其实这两者之间的区别归结为flex-basis:0;和flex-basis:auto;的区别`
+
+`flex-basis是指定初始尺寸，当设置为0时，相当于告诉flex-grow和flex-shrink在伸缩的时候不需要考虑我的尺寸；相反当设置为auto时，此时需要在伸缩时将元素尺寸纳入考虑`
 
 ``
 
