@@ -179,9 +179,74 @@ flex-basis:auto;//用于固定尺寸 不伸缩
 `其实这两者之间的区别归结为flex-basis:0;和flex-basis:auto;的区别`
 
 `flex-basis是指定初始尺寸，当设置为0时，相当于告诉flex-grow和flex-shrink在伸缩的时候不需要考虑我的尺寸；相反当设置为auto时，此时需要在伸缩时将元素尺寸纳入考虑`
+#### 五、容器内如何对齐
+`元素如何对齐，元素的大小是根据围绕主轴进行设置的，元素的对齐则需要作用于交叉轴上，对齐属性都是作用于`*容器上*
 
-``
+##### 1.主轴上的对齐方式
+`justify-content`
 
+```
+//元素在主轴开始方向对齐
+#container{
+    justify-content:flex-start; 
+}
+//元素在主轴结束方向对齐
+#container{
+    justify-content:flex-end;
+}
+//元素在主轴中间
+#container{
+    justify-content:center;
+}
+//空格在元素之间
+#container{
+    justify-content:space-between;
+}
+//元素在空格之间
+#container{
+    juetify-content:space-around;
+}
+```
+##### 2.交叉轴上的对齐方式
+* 交叉轴上的单行对齐方式
+`默认值是stretch，当元素没有设置具体尺寸时会将容器在交叉轴方向撑满。`
+```
+//默认值stretch，元素没有设置具体尺寸时，会将容器在交叉轴方向撑满
+#container{
+    align-items:stretch;
+}
+
+//沿交叉轴起点对齐
+#container{
+    align-items:flex-start;
+}
+
+//沿交叉轴终点对齐
+#container{
+    align-items:flex-end;
+}
+
+//沿交叉轴中点对齐
+#container{
+    align-items:center;
+}
+
+//沿第一行文字的基线对齐
+#container{
+    align-items:baseline;
+}
+```
+* 交叉轴上的多行对齐
+`通过flex-wrap:wrap;使得元素在一行放不下时进行换行。在这种场景下，就会在交叉轴上出现多行，多行情况下，flex布局提供了align-content属性设置对齐`
+
+`align-content与align-items比较类似`
+
+`align-content只对多行元素有效，会以多行为整体进行对齐，容器必须开启换行`
+```
+align-content:stretch | flex-start | flex-end | center | space-between | space-around 
+
+align-items:stretch | flex-start | flex-end | center | baseline
+```
 
 ``
 
