@@ -107,7 +107,7 @@ flex-flow:row-reverse nowrap;
 `flex-basis设置的是元素在主轴上的初始尺寸，所谓的初始尺寸就是元素在flex-grow和flex-shrink生效前的尺寸`
 
 ##### 1.flex-basis与width/height的区别
-`首先以width为例进行比较。`
+`首先以width为例进行比较`
 
 `(1)两者都为0`
 * width:0; ----完全没有显示
@@ -131,6 +131,7 @@ div > div:nth-child(2){
 `(2)两者非0`
 * width:!0;
 * flex-basis:!0;
+
 `数值相同时两者等效`
 
 `同时设置，flex-basis优先级高`
@@ -143,7 +144,6 @@ div > div:nth-child(2){
 * 将主轴方向改为：上--->下
 * 此时主轴的尺寸是元素的height
 * flex-basis===height
-``
 ##### 2.常用的复合属性flex
 `最容易迷糊的一个`
 
@@ -209,6 +209,7 @@ flex-basis:auto;//用于固定尺寸 不伸缩
 ```
 ##### 2.交叉轴上的对齐方式
 * 交叉轴上的单行对齐方式
+
 `默认值是stretch，当元素没有设置具体尺寸时会将容器在交叉轴方向撑满。`
 ```
 //默认值stretch，元素没有设置具体尺寸时，会将容器在交叉轴方向撑满
@@ -237,6 +238,7 @@ flex-basis:auto;//用于固定尺寸 不伸缩
 }
 ```
 * 交叉轴上的多行对齐
+
 `通过flex-wrap:wrap;使得元素在一行放不下时进行换行。在这种场景下，就会在交叉轴上出现多行，多行情况下，flex布局提供了align-content属性设置对齐`
 
 `align-content与align-items比较类似`
@@ -247,7 +249,12 @@ align-content:stretch | flex-start | flex-end | center | space-between | space-a
 
 align-items:stretch | flex-start | flex-end | center | baseline
 ```
+#### 六、其他
+`order 可以优雅的调整元素的顺序`
 
-``
+`order:可以设置元素之间的排列顺序`
 
+`1.数值越小，越靠前，默认为0`
+
+`2.数值相同时，以dom中元素排列为准`
 
