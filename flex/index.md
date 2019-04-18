@@ -29,3 +29,66 @@
 
 `4.弹性元素也可以通过`*display:flex*`设置为一个弹性容器,因此一个元素既可以是弹性容器也可以是弹性元素`
 
+#### 主轴
+`flex布局是一种一维布局模型，一次只能处理一个维度（一行或一列）上的元素布局，也就是说，flex布局大部分的属性都是作用于主轴的，在交叉轴上很多时候只能被动地变化`
+##### 1.主轴的方向
+`我们可以在弹性容器上通过`flex-direction`修改主轴的方向，如果主轴方向修改了，那么：`
+
+`1.交叉轴就会相应地旋转90度`
+
+
+`2.弹性元素的排列方式也会发生改变，因为弹性元素永远眼主轴排列`
+```
+row           左---->右(默认)
+flex-direction:row;
+
+column        上---->下
+flex-direction:column;
+
+row-reverse   右---->左
+flex-direction:row-reverse;
+
+column-reverse 下---->上
+flex-direction:column-reverse;
+
+```
+##### 2.沿主轴的排列处理
+`弹性元素永远沿主轴排列，那么如果主轴排不下，会怎样处理？答案就是`flex-wrap
+```
+nowrap    不折行（默认）
+flex-wrap:nowrap;
+
+wrap      折行
+flex-wrap:wrap; 
+
+wrap-reverse 反向折行
+flex-wrap:wrap-reverse;
+```
+##### 3.一个复合属性
+`flex-flow = flex-direction + flex-wrap;`
+
+`flex-flow 相当于规定了flex布局的‘工作流(flow)’`
+```
+flex-flow:row nowrap;
+
+flex-flow:column nowrap;
+
+flex-flow:row-reverse nowrap;
+...
+```
+
+``
+``
+
+``
+
+
+``
+
+
+``
+
+
+``
+
+
