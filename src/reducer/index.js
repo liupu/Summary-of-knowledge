@@ -1,12 +1,12 @@
-export default (state={num:0},action) => {
+export default (state = { num: 0 }, action) => {
     let { type } = action;
-    switch(type){
+    switch (type) {
         case 'ADD':
-        return {...state, num:state.num + 1 };
+            return { ...state, num: state.num + 1 };
         case 'MINUS':
-        return {...state, num:state.num -1 };
-        case 'ADDNUM':
-        return {...state, num:state.num + action.number}
+            return { ...state, num: state.num - 1 > 0 ? state.num - 1 : 0};
+        case 'ADDASNUM':
+            return { ...state, num: state.num + action.number };
         default:
         return state;
     }

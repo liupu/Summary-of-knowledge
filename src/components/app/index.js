@@ -1,38 +1,39 @@
 import React, { Component } from 'react';
+import * as actions from '../../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from '../../actions';
 
 class App extends Component {
-    constructor(props) {
-        super(props)
-        console.log(props)
+    constructor(props){
+        super(props);
+        console.log(props);
     }
-    addNumFun() {
-        const number = Number(this.refs.inputNum.value);
-        this.props.actions.addAsNumFun(number);
+    addAsNum(){
+        const inputNum = Number(this.refs.inputNum.value);
+        console.log(inputNum)
+        this.props.actions.addAsNum(inputNum);
         this.refs.inputNum.value = '';
     }
-    render() {
-        return (
+    render(){
+        return(
             <div>
                 <p>{this.props.num}</p>
-                <button onClick={this.props.actions.addFun}>+++</button>
+                <input type='button' value='+++' onClick={this.props.actions.addFun} id='add'/>
                 {' '}
-                <button onClick={this.props.actions.minusFun}>---</button>
+                <input type='button' value='---' onClick={this.props.actions.minusFun} id='minus'/>
                 {' '}
-                <input type='text' placeholder='Please input a number' ref='inputNum' />
+                <input type='text' placeholder='Please input a number' ref='inputNum'/>
                 {' '}
-                <button onClick={this.addNumFun.bind(this)}>Add as input num </button>
+                <input type='button' value='Add a number' onClick={this.addAsNum.bind(this)}/>
             </div>
         )
     }
 }
-const mapStateToProps = (state) => {
+
+const mapStateToProps = (state) =>{
     return state;
 }
-
 const mapDispatchToProps = (dispatch) => {
-    return { actions: bindActionCreators(actions, dispatch) };
+    return {actions:bindActionCreators(actions,dispatch)};
 }
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App);
