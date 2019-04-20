@@ -9,18 +9,19 @@ class App extends Component {
         console.log(props);
     }
     addAsNum(){
+        const { addAsNum } = this.props.actions;
         const inputNum = Number(this.refs.inputNum.value);
-        console.log(inputNum)
-        this.props.actions.addAsNum(inputNum);
+        addAsNum(inputNum);
         this.refs.inputNum.value = '';
     }
     render(){
+        const { addFun, minusFun } = this.props.actions;
         return(
             <div>
                 <p>{this.props.num}</p>
-                <input type='button' value='+++' onClick={this.props.actions.addFun} id='add'/>
+                <input type='button' value='+++' onClick={ addFun } id='add'/>
                 {' '}
-                <input type='button' value='---' onClick={this.props.actions.minusFun} id='minus'/>
+                <input type='button' value='---' onClick={ minusFun } id='minus'/>
                 {' '}
                 <input type='text' placeholder='Please input a number' ref='inputNum'/>
                 {' '}
