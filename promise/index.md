@@ -1,5 +1,5 @@
 #### Promise
-`Promise就是一个对象，代表一个异步操作的最终成功或失败`
+`一个Promise就是一个对象，代表一个异步操作的最终成功或失败`
 `本质上，Promise是一个绑定了回调的对象，而不是将回调传进函数内部`
 `不使用Promise时,根据一个setting文件，生成结果的函数(createResult())表示如下`
 ```
@@ -23,6 +23,14 @@ promise.then(successCallback, failureCallback);
 ```
 createResult(setting).then(successCallback, failureCallback);
 ```
+`使用Promise时`
+
+* `JavaScript事件队列中，在本轮事件循环运行完成之前，回调函数永远不会被调用`
+
+* `通过.then()形式添加的回调函数都会被调用`
+
+* `通过.then()可以添加多个回调函数，并且按照添加的顺序依次执行`
+
 `promise的好处是链式调用`
 
 
