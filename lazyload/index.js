@@ -1,5 +1,4 @@
 window.onload=function(){
-    alert(1111);
     var oBox = document.getElementsByClassName("box");
     var oImg = document.getElementsByTagName("img");
     var oBoxw = oBox[0].offsetWidth;
@@ -34,7 +33,7 @@ window.onload=function(){
                 }else{
                     aftLoadImg(arr[i],arr[i].getAttribute("data-original"));
                 }
-                arr[i].style.cssText = "transition:opacity 4s; opacity:1;";
+                arr[i].style.cssText = "transition:opacity 10s; opacity:1;";
             }
 
         }
